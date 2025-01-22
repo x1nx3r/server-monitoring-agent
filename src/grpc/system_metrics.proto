@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package systemmetrics;
+
+// The system metrics service definition.
+service SystemMetrics {
+  // Sends system metrics to the server.
+  rpc SendMetrics (MetricsRequest) returns (MetricsResponse);
+}
+
+// The request message containing the system metrics.
+message MetricsRequest {
+  string cpu_usage = 1;
+  string cpu_times = 2;
+  string cpu_frequency = 3;
+  string total_ram = 4;
+  string used_ram = 5;
+  string available_ram = 6;
+  string ram_usage = 7;
+}
+
+// The response message containing the server's acknowledgment.
+message MetricsResponse {
+  string message = 1;
+}
